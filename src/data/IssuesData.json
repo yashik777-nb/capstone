@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "yash@abc.com",
+      "password": "yash"
+    }
+  ],
+  "issues": [
+    {
+      "id": 1,
+      "issueDescription": "Issue Description One",
+      "severity": "Critical",
+      "status": "Open"
+    },
+    {
+      "id": 2,
+      "issueDescription": "Issue Description Two",
+      "severity": "Minor",
+      "status": "Closed"
+    },
+    {
+      "id": 3,
+      "issueDescription": "Issue Description Three",
+      "severity": "Major",
+      "status": "In Progress"
+    },
+    {
+      "issueDescription": "Issue Four",
+      "severity": "Critical",
+      "status": "Closed",
+      "id": "9b181fca-09ec-4bec-8a38-21bbbfa276b7"
+    }
+  ]
+}
