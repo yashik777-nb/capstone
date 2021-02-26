@@ -1,2 +1,2 @@
 export { getIssues, addIssue } from "./actionCreators/IssuesActionCreator";
-export { authenticateUser } from "./actionCreators/usersActionCreator";
+export { authenticateUser, addUser } from "./actionCreators/usersActionCreator";

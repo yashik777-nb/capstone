@@ -16,7 +16,12 @@ class Issue extends React.Component {
     return (
       <tr>
         <td>
-          <Link onClick={this.issueClicked}>{this.props.issueDescription}</Link>
+          <Link
+            to={`/issues/${this.props.issueDescription}`}
+            onClick={this.issueClicked}
+          >
+            {this.props.issueDescription}
+          </Link>
         </td>
         <td>{this.props.severity}</td>
         <td>{this.props.status}</td>

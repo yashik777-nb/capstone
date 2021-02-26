@@ -9,23 +9,27 @@
   "issues": [
     {
       "id": 1,
+      "title": "Issue One",
       "issueDescription": "Issue Description One",
       "severity": "Critical",
       "status": "Open"
     },
     {
       "id": 2,
+      "title": "Issue Two",
       "issueDescription": "Issue Description Two",
       "severity": "Minor",
       "status": "Closed"
     },
     {
       "id": 3,
+      "title": "Issue Three",
       "issueDescription": "Issue Description Three",
       "severity": "Major",
       "status": "In Progress"
     },
     {
+      "title": "Issue Four",
       "issueDescription": "Issue Four",
       "severity": "Critical",
       "status": "Closed",
