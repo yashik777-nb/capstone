@@ -18,7 +18,7 @@ import MobileNavigationBar from "./MobileNavigationBar";
 const navLinks = [
   { title: `About`, path: `/about`, toolTip: `About Application` },
   { title: `Issues`, path: `/issues`, toolTip: `Issues in the Applicaiton` },
-  { title: `Sign In`, path: `/sign-in`, toolTip: `Sign In to Applciaiton` },
+  { title: `Sign In`, path: `/signin`, toolTip: `Sign In to Applciaiton` },
   { title: `Register`, path: `/register`, toolTip: `Register Yourself` },
 ];
 

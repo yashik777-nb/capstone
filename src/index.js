@@ -17,11 +17,9 @@ const reducer = combineReducers({
 const store = createStore(reducer, applyMiddleware(redxuThunk));
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );
 
