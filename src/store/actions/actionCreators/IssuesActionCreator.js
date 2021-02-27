@@ -30,3 +30,12 @@ export const addIssue = (issue) => {
       .catch((err) => console.log(err));
   };
 };
+
+export const filterIssues = (issueDescription) => {
+  return (dispatch) => {
+    return dispatch({
+      type: actionTypes.FILTER_ISSUE,
+      searchValue: issueDescription,
+    });
+  };
+};

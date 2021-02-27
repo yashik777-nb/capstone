@@ -8,7 +8,7 @@ import About from "../components/About/About";
 import IssueDetail from "../containers/IssuesList/IssueDetail/IssueDetail";
 import SignInForm from "./Users/SignIn/SignInForm";
 import RegistrationForm from "./Users/Registration/RegistrationForm";
-import NavigationBar from "../components/NavigationBar/NavigationBar";
+import NavigationBar from "./NavigationBar/NavigationBar";
 import { connect } from "react-redux";
 import * as actionCreators from "../store/actions/actionCreators/IssuesActionCreator";
 
