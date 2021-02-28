@@ -7,33 +7,6 @@
       "firstname": "Yash",
       "lastname": "IK",
       "mobileNumber": 12121212
-    },
-    {
-      "username": "yaswanth.iddibani@gmail.com",
-      "password": "Yashwanth01",
-      "firstname": "Yashwanth",
-      "lastname": "Iddibani",
-      "location": "UK",
-      "mobileNumber": "7870484229",
-      "id": "cdc16d0f-2723-43e5-af82-aa5f9eb74325"
-    },
-    {
-      "username": "test@test.com",
-      "password": "test",
-      "firstname": "tets",
-      "lastname": "test",
-      "location": "ttt",
-      "mobileNumber": "ttt",
-      "id": "a4798d47-9e52-4455-83c6-1062083e8f1b"
-    },
-    {
-      "username": "test@",
-      "password": "test",
-      "firstname": "test",
-      "lastname": "testh",
-      "location": "UK",
-      "mobileNumber": "121212",
-      "id": "965ce500-6a4a-4ea9-a5c4-54cb7058e61b"
     }
   ],
   "issues": [
@@ -44,7 +17,8 @@
       "severity": "Critical",
       "status": "Open",
       "createdDate": "28/02/2021",
-      "resolvedDate": "29/03/2021"
+      "resolvedDate": "29/03/2021",
+      "views": 5
     },
     {
       "id": 2,
@@ -53,7 +27,8 @@
       "severity": "Minor",
       "status": "Closed",
       "createdDate": "28/02/2021",
-      "resolvedDate": "29/03/2021"
+      "resolvedDate": "29/03/2021",
+      "views": 4
     },
     {
       "id": 3,
@@ -62,7 +37,8 @@
       "severity": "Major",
       "status": "In Progress",
       "createdDate": "28/02/2021",
-      "resolvedDate": "29/03/2021"
+      "resolvedDate": "29/03/2021",
+      "views": 3
     },
     {
       "title": "Issue Four",
@@ -71,7 +47,8 @@
       "status": "Closed",
       "id": "9b181fca-09ec-4bec-8a38-21bbbfa276b7",
       "createdDate": "28/02/2021",
-      "resolvedDate": "29/03/2021"
+      "resolvedDate": "29/03/2021",
+      "views": 2
     }
   ]
 }

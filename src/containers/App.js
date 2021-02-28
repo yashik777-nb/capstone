@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import "./App.css";
 import * as actionCreators from "../store/actions/actionCreators/IssuesActionCreator";
 import Loader from "../components/Loader/Loader";
+import IssuesChart from "../containers/Charts/IssuesChart";
 // import AllIssues from "../containers/IssuesList/AllIssues";
 // import NotFound from "../containers/NotFound/NotFound";
 // import About from "../components/About/About";
@@ -48,6 +49,7 @@ class App extends React.Component {
             </Switch>
           </div>
         </BrowserRouter>
+        <IssuesChart />
       </Suspense>
     );
   }
