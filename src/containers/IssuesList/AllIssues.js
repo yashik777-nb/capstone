@@ -15,11 +15,22 @@ class AllIssues extends React.Component {
     const { classes } = this.props;
 
     let issueCards = this.props.issues.map((issue) => {
-      return <CardIssue key={issue.id} {...issue} />;
+      return (
+        <CardIssue
+          key={issue.id}
+          {...issue}
+          authenticated={this.props.authenticated}
+        />
+      );
     });
 
     return (
       <div className="m-4">
+        {this.props.authenticated ? (
+          <h4 style={{ marginTop: 20, textAlign: "center" }}>
+            Hello {this.props.firstname}! Please find the below issues
+          </h4>
+        ) : null}
         <CustomizeFields />
         <div className={classes.root}>
           <Grid>{issueCards}</Grid>
@@ -33,6 +44,8 @@ class AllIssues extends React.Component {
 const mapStateToProps = (state) => {
   return {
     issues: state.issues.issues,
+    authenticated: state.users.authenticated,
+    firstname: state.users.firstname,
   };
 };
 

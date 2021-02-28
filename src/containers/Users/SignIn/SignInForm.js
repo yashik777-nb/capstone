@@ -5,15 +5,26 @@ import SignIn from "../../../components/SignIn/SignIn";
 import * as actionCreators from "../../../store/actions/actionsIndex";
 
 class SingInForm extends React.Component {
-  async onSave(user) {
-    user.id = 1;
-    await this.props.authenticateUser(user);
-    if (this.props.authenticated) this.props.history.push("/issues");
-    else console.log("not authenticated");
+  onSave(user) {
+    if (user) {
+      this.props.authenticateUser(user);
+      this.props.history.push("/issues");
+    } else {
+      this.props.authenticateUser();
+    }
+  }
+
+  onRegister() {
+    this.props.history.push("/register");
   }
 
   render() {
-    return <SignIn onSave={(user) => this.onSave(user)} />;
+    return (
+      <SignIn
+        onSave={(user) => this.onSave(user)}
+        register={() => this.onRegister()}
+      />
+    );
   }
 }
 

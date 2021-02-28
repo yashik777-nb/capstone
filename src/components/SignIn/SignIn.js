@@ -1,18 +1,71 @@
 import React from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import { blue } from "@material-ui/core/colors";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import { withStyles } from "@material-ui/core/styles";
 
-export default class SignIn extends React.Component {
+import CapstoneAPI from "../../data/CapstoneAPI";
+
+const styles = (theme) => ({
+  paper: {
+    marginTop: 8,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: 10,
+    backgroundColor: blue[400],
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: 1,
+  },
+  submit: {
+    marginTop: 5,
+    marginBottom: 0,
+    marginLeft: 2,
+  },
+  register: {
+    marginTop: 5,
+  },
+});
+
+class SignInMUI extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
       password: "",
+      error: false,
+      errorText: "",
     };
+  }
+
+  toRegister(e) {
+    e.preventDefault();
+    this.props.register();
   }
 
   onSubmit(e) {
     e.preventDefault();
-    const user = { ...this.state };
-    this.props.onSave(user);
+    const userFound = CapstoneAPI.checkUser(this.state.username);
+    if (userFound.length === 1) {
+      this.props.onSave(userFound);
+    } else {
+      this.setState({
+        ...this.state,
+        errorText: "Username does not exist in database",
+      });
+    }
   }
 
   usernameChangeHandler(e) {
@@ -28,68 +81,82 @@ export default class SignIn extends React.Component {
   }
 
   render() {
+    const { classes } = this.props;
     return (
-      <main className="login-form m-5">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-8">
-              <div className="card">
-                <div className="card-header">
-                  <p>Sign In</p>
-                </div>
-                <div className="card-body">
-                  <form onSubmit={(e) => this.onSubmit(e)}>
-                    <div className="form-group row">
-                      <label
-                        htmlFor="email_address"
-                        className="col-md-4 col-form-label text-md-right"
-                      >
-                        E-Mail Address
-                      </label>
-                      <div className="col-md-6">
-                        <input
-                          type="text"
-                          id="email_address"
-                          className="form-control"
-                          name="email-address"
-                          onChange={(e) => this.usernameChangeHandler(e)}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="form-group row">
-                      <label
-                        htmlFor="password"
-                        className="col-md-4 col-form-label text-md-right"
-                      >
-                        Password
-                      </label>
-                      <div className="col-md-6">
-                        <input
-                          type="password"
-                          id="password"
-                          className="form-control"
-                          name="password"
-                          onChange={(e) => this.passwordChangeHandler(e)}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="col-md-6 offset-md-4">
-                      <button
-                        type="submit"
-                        className="btn btn-primary btn-block"
-                      >
-                        Sign In
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <form className={classes.form} onSubmit={(e) => this.onSubmit(e)}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              value={this.state.username}
+              onChange={(e) => this.usernameChangeHandler(e)}
+              color="primary"
+              error={this.state.errorText.length === 0 ? false : true}
+              helperText={this.state.errorText}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              value={this.state.password}
+              onChange={(e) => this.passwordChangeHandler(e)}
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign In
+            </Button>
+            <Grid container className={classes.register}>
+              <Grid item>
+                <Link
+                  href="#"
+                  variant="body2"
+                  onClick={(e) => this.toRegister(e)}
+                >
+                  {"Don't have an account? Register"}
+                </Link>
+              </Grid>
+            </Grid>
+          </form>
         </div>
-      </main>
+        <Box mt={8}>
+          <Typography variant="body2" color="textSecondary" align="center">
+            {"Copyright © "}
+            <Link color="inherit" href="https://material-ui.com/">
+              My Work
+            </Link>{" "}
+            {new Date().getFullYear()}
+            {"."}
+          </Typography>
+        </Box>
+      </Container>
     );
   }
 }
+
+export default withStyles(styles, { withTheme: true })(SignInMUI);

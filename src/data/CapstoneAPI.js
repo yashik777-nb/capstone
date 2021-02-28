@@ -18,10 +18,10 @@ export default class CapstoneAPI {
   }
 
   // User Services
-  static async checkUser(id) {
+  static async checkUser(username) {
     return await axios
-      .get(`http://localhost:3001/users/${id}`)
-      .then((res) => res.data)
+      .get(`http://localhost:3001/users/`)
+      .then((res) => res.data.filter((user) => user.username === username))
       .catch((err) => console.log(err));
   }
 

@@ -21,7 +21,6 @@ import * as actionCreators from "../../store/actions/actionsIndex";
 const navLinks = [
   { title: `About`, path: `/about`, toolTip: `About Application` },
   { title: `Issues`, path: `/issues`, toolTip: `Issues in the Applicaiton` },
-  { title: `Add Issue`, path: `/addIssue`, toolTip: `Add An Issue` },
   { title: `Sign In`, path: `/signin`, toolTip: `Sign In to Applciaiton` },
   { title: `Register`, path: `/register`, toolTip: `Register Yourself` },
 ];
@@ -62,6 +61,10 @@ const styles = (theme) => ({
 });
 
 class NavigationBar extends React.Component {
+  onNavLinkClick(event) {
+    console.log(event);
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -97,6 +100,19 @@ class NavigationBar extends React.Component {
                     </Tooltip>
                   </NavLink>
                 ))}
+                {this.props.authenticated ? (
+                  <NavLink
+                    to="/addIssue"
+                    key="Add Issue"
+                    className={classes.linkText}
+                  >
+                    <Tooltip disableFocusListener title="Add An Issue">
+                      <ListItem button>
+                        <ListItemText primary="Add Issue" />
+                      </ListItem>
+                    </Tooltip>
+                  </NavLink>
+                ) : null}
               </List>
             </Hidden>
             <Hidden mdUp>
@@ -113,8 +129,6 @@ class NavigationBar extends React.Component {
 const mapStateToProps = (state) => {
   return {
     authenticated: state.users.authenticated,
-    firstname: state.users.firstname,
-    lastname: state.users.lastname,
   };
 };
 

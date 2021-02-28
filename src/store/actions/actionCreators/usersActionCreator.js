@@ -16,6 +16,7 @@ const userDoesNotExist = (error) => {
 };
 
 const addUserDispatch = (userData) => {
+  console.log("dispatch", userData);
   return {
     type: actionTypes.REGISTER_USER,
     ...userData,
@@ -23,14 +24,9 @@ const addUserDispatch = (userData) => {
 };
 
 export const authenticateUser = (user) => {
-  return async (dispatch) => {
-    return await CapstoneAPI.checkUser(user.id)
-      .then((data) => {
-        if (user.password === data.password)
-          return dispatch(loggedInUser(data));
-        else return dispatch(userDoesNotExist("UserDoesNotExist"));
-      })
-      .catch((err) => console.log(err));
+  return (dispatch) => {
+    if (user) return dispatch(loggedInUser(user));
+    else dispatch(userDoesNotExist("UserDoesNotExist"));
   };
 };
 

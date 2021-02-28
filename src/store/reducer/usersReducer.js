@@ -16,11 +16,11 @@ const usersReducer = (state = userInitalState, action) => {
       return {
         ...state,
         authenticated: true,
-        username: action.userData.username,
-        firstName: action.userData.firstName,
-        lastName: action.userData.lastName,
-        location: action.userData.location,
-        mobileNumber: action.userData.mobileNumber,
+        username: action.userData[0].username,
+        firstname: action.userData[0].firstname,
+        lastname: action.userData[0].lastname,
+        location: action.userData[0].location,
+        mobileNumber: action.userData[0].mobileNumber,
       };
     case actionTypes.USER_DOES_NOT_EXIST:
       return {
@@ -34,8 +34,8 @@ const usersReducer = (state = userInitalState, action) => {
         ...state,
         authenticated: true,
         username: action.username,
-        firstName: action.firstName,
-        lastName: action.lastName,
+        firstname: action.firstname,
+        lastname: action.lastname,
         location: action.location,
         mobileNumber: action.mobileNumber,
       };

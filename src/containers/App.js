@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
 import * as actionCreators from "../store/actions/actionCreators/IssuesActionCreator";
+import Loader from "../components/Loader/Loader";
 // import AllIssues from "../containers/IssuesList/AllIssues";
 // import NotFound from "../containers/NotFound/NotFound";
 // import About from "../components/About/About";
@@ -32,7 +33,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loader />}>
         <BrowserRouter>
           <div className="App">
             <NavigationBar />
@@ -52,14 +53,6 @@ class App extends React.Component {
   }
 }
 
-// mapStateToProps
-const mapStateToProps = (state) => {
-  return {
-    authenticated: state.users.authenticated,
-    firstname: state.users.firstname,
-  };
-};
-
 // mapDispatcherToProps
 const mapDispatcherToProps = (dispatch) => {
   return {
@@ -67,4 +60,4 @@ const mapDispatcherToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatcherToProps)(App);
+export default connect(null, mapDispatcherToProps)(App);
