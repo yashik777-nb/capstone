@@ -12,28 +12,36 @@
       "title": "Issue One",
       "issueDescription": "Issue Description One",
       "severity": "Critical",
-      "status": "Open"
+      "status": "Open",
+      "createdDate": "28/02/2021",
+      "resolvedDate": "29/03/2021"
     },
     {
       "id": 2,
       "title": "Issue Two",
       "issueDescription": "Issue Description Two",
       "severity": "Minor",
-      "status": "Closed"
+      "status": "Closed",
+      "createdDate": "28/02/2021",
+      "resolvedDate": "29/03/2021"
     },
     {
       "id": 3,
       "title": "Issue Three",
       "issueDescription": "Issue Description Three",
       "severity": "Major",
-      "status": "In Progress"
+      "status": "In Progress",
+      "createdDate": "28/02/2021",
+      "resolvedDate": "29/03/2021"
     },
     {
       "title": "Issue Four",
       "issueDescription": "Issue Four",
       "severity": "Critical",
       "status": "Closed",
-      "id": "9b181fca-09ec-4bec-8a38-21bbbfa276b7"
+      "id": "9b181fca-09ec-4bec-8a38-21bbbfa276b7",
+      "createdDate": "28/02/2021",
+      "resolvedDate": "29/03/2021"
     }
   ]
 }

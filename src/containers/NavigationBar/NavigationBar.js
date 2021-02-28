@@ -21,6 +21,7 @@ import * as actionCreators from "../../store/actions/actionsIndex";
 const navLinks = [
   { title: `About`, path: `/about`, toolTip: `About Application` },
   { title: `Issues`, path: `/issues`, toolTip: `Issues in the Applicaiton` },
+  { title: `Add Issue`, path: `/addIssue`, toolTip: `Add An Issue` },
   { title: `Sign In`, path: `/signin`, toolTip: `Sign In to Applciaiton` },
   { title: `Register`, path: `/register`, toolTip: `Register Yourself` },
 ];

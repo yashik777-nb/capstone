@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -50,6 +51,26 @@ class CardIssue extends React.Component {
           >
             {this.props.issueDescription}
           </Typography>
+          {this.props.customize.severity ? (
+            <Typography className={classes.pos} color="textSecondary">
+              Severity: {this.props.severity}
+            </Typography>
+          ) : null}
+          {this.props.customize.status ? (
+            <Typography className={classes.pos} color="textSecondary">
+              Status: {this.props.status}
+            </Typography>
+          ) : null}
+          {this.props.customize.createdDate ? (
+            <Typography variant="body2" component="p">
+              Created Date: {this.props.createdDate}
+            </Typography>
+          ) : null}
+          {this.props.customize.resolvedDate ? (
+            <Typography variant="body2" component="p">
+              Resolved Date: {this.props.resolvedDate}
+            </Typography>
+          ) : null}
         </CardContent>
         <CardActions>
           <Button size="small" onClick={() => this.issueClicked()}>
@@ -61,4 +82,12 @@ class CardIssue extends React.Component {
   }
 }
 
-export default withStyles(styles, { withTheme: true })(withRouter(CardIssue));
+const mapStateToProps = (state) => {
+  return {
+    customize: state.customize,
+  };
+};
+
+export default withStyles(styles, { withTheme: true })(
+  connect(mapStateToProps)(withRouter(CardIssue))
+);

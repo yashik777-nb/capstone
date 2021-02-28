@@ -8,10 +8,12 @@ import App from "./containers/App";
 import reportWebVitals from "./reportWebVitals";
 import issuesReducer from "./store/reducer/issuesReducer";
 import usersReducer from "./store/reducer/usersReducer";
+import customizeFields from "./store/reducer/customizeFieldsReducer";
 
 const reducer = combineReducers({
   users: usersReducer,
   issues: issuesReducer,
+  customize: customizeFields,
 });
 
 const store = createStore(reducer, applyMiddleware(redxuThunk));

@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/styles";
 import Grid from "@material-ui/core/Grid";
+import CustomizeFields from "./CustomizeFields";
 import CardIssue from "../../components/Issue/CardIssue";
 
 const styles = (theme) => ({
@@ -20,7 +20,7 @@ class AllIssues extends React.Component {
 
     return (
       <div className="m-4">
-        <Link to="/addIssue">Add Issue</Link>
+        <CustomizeFields />
         <div className={classes.root}>
           <Grid>{issueCards}</Grid>
         </div>
