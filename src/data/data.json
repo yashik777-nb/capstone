@@ -16,7 +16,7 @@
       "issueDescription": "Issue Description One",
       "severity": "Critical",
       "status": "Open",
-      "createdDate": "28/02/2021",
+      "createdDate": "28/02/2021  ",
       "resolvedDate": "29/03/2021",
       "views": 5
     },
@@ -26,29 +26,29 @@
       "issueDescription": "Issue Description Two",
       "severity": "Minor",
       "status": "Closed",
-      "createdDate": "28/02/2021",
-      "resolvedDate": "29/03/2021",
-      "views": 4
+      "createdDate": "2/3/2021",
+      "resolvedDate": "3/3/2021",
+      "views": 9
     },
     {
       "id": 3,
       "title": "Issue Three",
       "issueDescription": "Issue Description Three",
-      "severity": "Major",
-      "status": "In Progress",
-      "createdDate": "28/02/2021",
-      "resolvedDate": "29/03/2021",
-      "views": 3
+      "severity": "Minor",
+      "status": "Closed",
+      "createdDate": "11/3/2021",
+      "resolvedDate": "12/3/2021",
+      "views": 4
     },
     {
+      "id": 4,
       "title": "Issue Four",
-      "issueDescription": "Issue Four",
-      "severity": "Critical",
+      "issueDescription": "Issue Description Four",
+      "severity": "Minor",
       "status": "Closed",
-      "id": "9b181fca-09ec-4bec-8a38-21bbbfa276b7",
-      "createdDate": "28/02/2021",
-      "resolvedDate": "29/03/2021",
-      "views": 2
+      "createdDate": "11/3/2021",
+      "resolvedDate": "12/3/2021",
+      "views": 4
     }
   ]
 }

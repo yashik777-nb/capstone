@@ -1,5 +1,7 @@
 export {
   getIssues,
+  updateIssue,
+  deleteIssue,
   addIssue,
   filterIssues,
 } from "./actionCreators/IssuesActionCreator";

@@ -85,7 +85,6 @@ class SignInMUI extends React.Component {
       location: this.state.location,
       mobileNumber: this.state.mobileNumber,
     };
-    // console.log(user);
     this.props.onSave(user);
   }
 
