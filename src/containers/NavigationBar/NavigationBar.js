@@ -21,18 +21,18 @@ import * as actionCreators from "../../store/actions/actionsIndex";
 const navLinks = [
   { title: `About`, path: `/about`, toolTip: `About Application` },
   { title: `Issues`, path: `/issues`, toolTip: `Issues in the Applicaiton` },
-  { title: `Sign In`, path: `/signin`, toolTip: `Sign In to Applciaiton` },
+  { title: `SignIn`, path: `/signin`, toolTip: `Sign In to Applciaiton` },
   { title: `Register`, path: `/register`, toolTip: `Register Yourself` },
 ];
 
 const styles = (theme) => ({
   navDisplayFlex: {
     display: `flex`,
-    justifyContent: `space-between`,
+    justifyContent: `space-around`,
   },
   navbarDisplayFlex: {
     display: `flex`,
-    justifyContent: `space-between`,
+    justifyContent: `space-around`,
   },
   linkText: {
     textDecoration: `none`,
@@ -108,7 +108,7 @@ class NavigationBar extends React.Component {
                   >
                     <Tooltip disableFocusListener title="Add An Issue">
                       <ListItem button>
-                        <ListItemText primary="Add Issue" />
+                        <ListItemText primary="ADD ISSUE" />
                       </ListItem>
                     </Tooltip>
                   </NavLink>

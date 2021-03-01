@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Container } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import Grid from "@material-ui/core/Grid";
 import CustomizeFields from "./CustomizeFields";
@@ -27,16 +28,20 @@ class AllIssues extends React.Component {
 
     return (
       <div className="m-4">
-        {this.props.authenticated ? (
-          <h4 style={{ marginTop: 20, textAlign: "center", color: "#3f51b5" }}>
-            Hello {this.props.firstname}! Please find the below issues
-          </h4>
-        ) : null}
-        <CustomizeFields />
-        <div className={classes.root}>
-          <Grid>{issueCards}</Grid>
-        </div>
-        <IssuesChart />
+        <Container maxWidth="lg">
+          {this.props.authenticated ? (
+            <h4
+              style={{ marginTop: 20, textAlign: "center", color: "#3f51b5" }}
+            >
+              Hello {this.props.firstname}! Please find the below issues
+            </h4>
+          ) : null}
+          <CustomizeFields />
+          <div className={classes.root}>
+            <Grid>{issueCards}</Grid>
+          </div>
+          <IssuesChart />
+        </Container>
       </div>
     );
   }

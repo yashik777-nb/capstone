@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Pie, Doughnut } from "react-chartjs-2";
+import { Hidden } from "@material-ui/core";
 class IssuesChart extends React.Component {
   render() {
     const graphData = {
@@ -20,37 +21,72 @@ class IssuesChart extends React.Component {
     };
     return (
       <div>
-        <Pie
-          height={100}
-          data={graphData}
-          options={{
-            title: {
-              display: true,
-              text: "Issues By View  - Pie Chart",
-              fontSize: 20,
-            },
-            legend: {
-              display: true,
-              position: "right",
-            },
-          }}
-        />
+        <Hidden smDown>
+          <Pie
+            height={75}
+            data={graphData}
+            options={{
+              title: {
+                display: true,
+                text: "Issues vs Views  - Pie Chart",
+                fontSize: 20,
+              },
+              legend: {
+                display: true,
+                position: "right",
+              },
+            }}
+          />
 
-        <Doughnut
-          height={100}
-          data={graphData}
-          options={{
-            title: {
-              display: true,
-              text: "Issue By View - Doughnut Chart",
-              fontSize: 20,
-            },
-            legend: {
-              display: true,
-              position: "right",
-            },
-          }}
-        />
+          <Doughnut
+            height={75}
+            data={graphData}
+            options={{
+              title: {
+                display: true,
+                text: "Issues vs Views - Doughnut Chart",
+                fontSize: 20,
+              },
+              legend: {
+                display: true,
+                position: "right",
+              },
+            }}
+          />
+        </Hidden>
+        <Hidden mdUp>
+          <Pie
+            height={100}
+            data={graphData}
+            options={{
+              title: {
+                display: true,
+                text: "Issues vs Views  - Pie Chart",
+                fontSize: 20,
+              },
+              legend: {
+                display: false,
+                position: "right",
+              },
+            }}
+          />
+
+          <Doughnut
+            height={100}
+            data={graphData}
+            options={{
+              title: {
+                display: true,
+                text: "Issues vs Views - Doughnut Chart",
+                fontSize: 20,
+              },
+              legend: {
+                display: false,
+                position: "right",
+              },
+            }}
+          />
+        </Hidden>
       </div>
     );
   }

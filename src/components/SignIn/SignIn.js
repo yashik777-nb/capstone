@@ -61,6 +61,7 @@ class SignIn extends React.Component {
       .then((user) => {
         console.log(user);
         if (user.length === 1) {
+          this.props.onSave(user);
         } else {
           this.setState({
             ...this.state,
