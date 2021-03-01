@@ -1,4 +1,5 @@
 import React from "react";
+import randomColor from "randomcolor";
 import { withStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import TextField from "@material-ui/core/TextField";
@@ -119,6 +120,13 @@ class IssueForm extends React.Component {
   onAddIssue(event) {
     event.preventDefault();
 
+    const color = randomColor();
+    const colorOption = {
+      count: 2,
+      hue: color,
+    };
+    const newColor = randomColor(colorOption);
+
     let issue = {
       title: this.state.title,
       issueDescription: this.state.issueDescription,
@@ -126,6 +134,8 @@ class IssueForm extends React.Component {
       status: this.state.status,
       createdDate: this.state.createdDateString,
       resolvedDate: this.state.resolvedDateString,
+      backGroundColor: newColor[0],
+      hoverBackGroundColor: newColor[1],
       views: 1,
     };
     this.props.onSave(issue);

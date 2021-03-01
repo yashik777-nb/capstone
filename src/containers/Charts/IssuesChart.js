@@ -1,31 +1,28 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Pie, Doughnut } from "react-chartjs-2";
-
-const state = {
-  labels: ["January", "February", "March", "April", "May"],
-  datasets: [
-    {
-      label: "Rainfall",
-      backgroundColor: ["#B21F00", "#C9DE00", "#2FDE00", "#00A6B4", "#6800B4"],
-      hoverBackgroundColor: [
-        "#501800",
-        "#4B5000",
-        "#175000",
-        "#003350",
-        "#35014F",
-      ],
-      data: [65, 59, 80, 81, 56],
-    },
-  ],
-};
-
-export default class App extends React.Component {
+class IssuesChart extends React.Component {
   render() {
+    const graphData = {
+      labels: this.props.issues.map((issue) => issue.title),
+      datasets: [
+        {
+          label: "Issues",
+          backgroundColor: this.props.issues.map(
+            (issue) => issue.backGroundColor
+          ),
+          hoverBackgroundColor: this.props.issues.map(
+            (issue) => issue.hoverBackGroundColor
+          ),
+          data: this.props.issues.map((issue) => issue.views),
+        },
+      ],
+    };
     return (
       <div>
         <Pie
           height={100}
-          data={state}
+          data={graphData}
           options={{
             title: {
               display: true,
@@ -41,7 +38,7 @@ export default class App extends React.Component {
 
         <Doughnut
           height={100}
-          data={state}
+          data={graphData}
           options={{
             title: {
               display: true,
@@ -58,3 +55,12 @@ export default class App extends React.Component {
     );
   }
 }
+
+// mapStateToProps
+const mapStateToProps = (state) => {
+  return {
+    issues: state.issues.issues,
+  };
+};
+
+export default connect(mapStateToProps)(IssuesChart);
