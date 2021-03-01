@@ -6,7 +6,11 @@ export {
   filterIssues,
 } from "./actionCreators/IssuesActionCreator";
 
-export { authenticateUser, addUser } from "./actionCreators/usersActionCreator";
+export {
+  authenticateUser,
+  addUser,
+  logoutUser,
+} from "./actionCreators/usersActionCreator";
 
 export {
   severityHandler,

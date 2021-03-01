@@ -28,7 +28,7 @@ class AllIssues extends React.Component {
     return (
       <div className="m-4">
         {this.props.authenticated ? (
-          <h4 style={{ marginTop: 20, textAlign: "center" }}>
+          <h4 style={{ marginTop: 20, textAlign: "center", color: "#3f51b5" }}>
             Hello {this.props.firstname}! Please find the below issues
           </h4>
         ) : null}

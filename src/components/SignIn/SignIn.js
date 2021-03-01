@@ -39,7 +39,7 @@ const styles = (theme) => ({
   },
 });
 
-class SignInMUI extends React.Component {
+class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,15 +57,18 @@ class SignInMUI extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const userFound = CapstoneAPI.checkUser(this.state.username);
-    if (userFound.length === 1) {
-      this.props.onSave(userFound);
-    } else {
-      this.setState({
-        ...this.state,
-        errorText: "Username does not exist in database",
-      });
-    }
+    CapstoneAPI.checkUser(this.state.username)
+      .then((user) => {
+        console.log(user);
+        if (user.length === 1) {
+        } else {
+          this.setState({
+            ...this.state,
+            errorText: "Username does not exist in database",
+          });
+        }
+      })
+      .catch((err) => console.log(err));
   }
 
   usernameChangeHandler(e) {
@@ -89,7 +92,7 @@ class SignInMUI extends React.Component {
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" style={{ color: "#3f51b5" }}>
             Sign in
           </Typography>
           <form className={classes.form} onSubmit={(e) => this.onSubmit(e)}>
@@ -159,4 +162,4 @@ class SignInMUI extends React.Component {
   }
 }
 
-export default withStyles(styles, { withTheme: true })(SignInMUI);
+export default withStyles(styles, { withTheme: true })(SignIn);

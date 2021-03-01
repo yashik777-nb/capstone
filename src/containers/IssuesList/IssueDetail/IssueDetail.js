@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -137,7 +137,6 @@ class IssueDetail extends React.Component {
     return (
       <div style={{ margin: "10px" }}>
         <Container component="main" maxWidth="xs">
-          <Link to="/">Back</Link>
           <CssBaseline />
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>

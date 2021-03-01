@@ -48,6 +48,29 @@ class MobileNavigationBar extends React.Component {
             </ListItem>
           </NavLink>
         ))}
+        {this.props.authenticated ? (
+          <NavLink
+            to="/addissue"
+            key="Add Issue"
+            className={this.props.linkText}
+          >
+            <ListItem button>
+              <ListItemText primary="Add Issue" />
+            </ListItem>
+          </NavLink>
+        ) : null}
+        {this.props.authenticated ? (
+          <NavLink
+            to="/"
+            key="Logout"
+            className={this.props.linkText}
+            onClick={(e) => this.props.logout()}
+          >
+            <ListItem button>
+              <ListItemText primary="Logout" />
+            </ListItem>
+          </NavLink>
+        ) : null}
       </List>
     </div>
   );

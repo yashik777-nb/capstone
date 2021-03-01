@@ -70,7 +70,7 @@ class NavigationBar extends React.Component {
     return (
       <AppBar position="static">
         <Toolbar>
-          <Container maxWidth="md" className={classes.navbarDisplayFlex}>
+          <Container maxWidth="lg" className={classes.navbarDisplayFlex}>
             <Tooltip disableFocusListener title="Home">
               <IconButton
                 edge="start"
@@ -102,7 +102,7 @@ class NavigationBar extends React.Component {
                 ))}
                 {this.props.authenticated ? (
                   <NavLink
-                    to="/addIssue"
+                    to="/addissue"
                     key="Add Issue"
                     className={classes.linkText}
                   >
@@ -113,10 +113,31 @@ class NavigationBar extends React.Component {
                     </Tooltip>
                   </NavLink>
                 ) : null}
+                {this.props.authenticated ? (
+                  <NavLink
+                    to="/"
+                    key="Logout"
+                    className={classes.linkText}
+                    onClick={(e) => this.props.logoutUser()}
+                  >
+                    <Tooltip
+                      disableFocusListener
+                      title="Logout from Application"
+                    >
+                      <ListItem button>
+                        <ListItemText primary="Logout" />
+                      </ListItem>
+                    </Tooltip>
+                  </NavLink>
+                ) : null}
               </List>
             </Hidden>
             <Hidden mdUp>
-              <MobileNavigationBar navLinks={navLinks} />
+              <MobileNavigationBar
+                authenticated={this.props.authenticated}
+                navLinks={navLinks}
+                logout={this.props.logoutUser}
+              />
             </Hidden>
           </Container>
         </Toolbar>
@@ -135,6 +156,7 @@ const mapStateToProps = (state) => {
 const mapDispathToProps = (dispatch) => {
   return {
     onSearchIssue: (value) => dispatch(actionCreators.filterIssues(value)),
+    logoutUser: () => dispatch(actionCreators.logoutUser()),
   };
 };
 

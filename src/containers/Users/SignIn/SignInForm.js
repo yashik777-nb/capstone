@@ -28,13 +28,6 @@ class SingInForm extends React.Component {
   }
 }
 
-// mapStateToProps
-const mapStateToProps = (state) => {
-  return {
-    authenticated: state.users.authenticated,
-  };
-};
-
 // mapDispatchToProps
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -42,7 +35,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(SingInForm));
+export default connect(null, mapDispatchToProps)(withRouter(SingInForm));

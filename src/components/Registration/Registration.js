@@ -133,7 +133,7 @@ class SignInMUI extends React.Component {
           <Avatar className={classes.avatar}>
             <HowToRegOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" style={{ color: "#3f51b5" }}>
             Register
           </Typography>
           <form className={classes.form} onSubmit={(e) => this.onSubmit(e)}>

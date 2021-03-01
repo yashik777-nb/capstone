@@ -29,7 +29,6 @@ const usersReducer = (state = userInitalState, action) => {
         message: action.error,
       };
     case actionTypes.REGISTER_USER:
-      console.log(state, action);
       return {
         ...state,
         authenticated: true,
@@ -38,6 +37,16 @@ const usersReducer = (state = userInitalState, action) => {
         lastname: action.lastname,
         location: action.location,
         mobileNumber: action.mobileNumber,
+      };
+    case actionTypes.LOGOUT_USER:
+      return {
+        ...state,
+        authenticated: false,
+        username: "",
+        firstname: "",
+        lastname: "",
+        location: "",
+        mobileNumber: "",
       };
     default:
       return state;
