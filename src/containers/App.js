@@ -14,7 +14,7 @@ import Loader from "../components/Loader/Loader";
 // import RegistrationForm from "./Users/Registration/RegistrationForm";
 // import NavigationBar from "./NavigationBar/NavigationBar";
 const AllIssues = lazy(() => import("../containers/IssuesList/AllIssues"));
-const NotFound = lazy(() => import("../containers/NotFound/NotFound"));
+const NotFound = lazy(() => import("../components/NotFound/NotFound"));
 const About = lazy(() => import("../components/About/About"));
 const IssueDetail = lazy(() =>
   import("../containers/IssuesList/IssueDetail/IssueDetail")

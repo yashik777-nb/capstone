@@ -15,7 +15,8 @@ const styles = (theme) => ({
 class AllIssues extends React.Component {
   render() {
     const { classes } = this.props;
-
+    const issuesLength = this.props.issues.length;
+    console.log(issuesLength);
     let issueCards = this.props.issues.map((issue) => {
       return (
         <CardIssue
@@ -36,11 +37,20 @@ class AllIssues extends React.Component {
               Hello {this.props.firstname}! Please find the below issues
             </h4>
           ) : null}
-          <CustomizeFields />
-          <div className={classes.root}>
-            <Grid>{issueCards}</Grid>
-          </div>
-          <IssuesChart />
+
+          {issuesLength > 0 ? (
+            <div>
+              <CustomizeFields />
+              <div className={classes.root}>
+                <Grid>{issueCards}</Grid>
+              </div>
+              <IssuesChart />
+            </div>
+          ) : (
+            <h5 style={{ marginTop: 20, textAlign: "center", color: "red" }}>
+              No Data Found
+            </h5>
+          )}
         </Container>
       </div>
     );

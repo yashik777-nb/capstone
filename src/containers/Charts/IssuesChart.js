@@ -19,6 +19,7 @@ class IssuesChart extends React.Component {
         },
       ],
     };
+
     return (
       <div>
         <Hidden smDown>

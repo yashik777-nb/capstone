@@ -37,6 +37,8 @@ const styles = (theme) => ({
   linkText: {
     textDecoration: `none`,
     textTransform: `uppercase`,
+    margin: 0,
+    padding: 0,
     color: `white`,
     "&:hover": {
       color: "black",
@@ -60,11 +62,7 @@ const styles = (theme) => ({
   },
 });
 
-class NavigationBar extends React.Component {
-  onNavLinkClick(event) {
-    console.log(event);
-  }
-
+export class NavigationBar extends React.Component {
   render() {
     const { classes } = this.props;
     return (
@@ -108,7 +106,7 @@ class NavigationBar extends React.Component {
                   >
                     <Tooltip disableFocusListener title="Add An Issue">
                       <ListItem button>
-                        <ListItemText primary="ADD ISSUE" />
+                        <ListItemText primary="Add Issue" />
                       </ListItem>
                     </Tooltip>
                   </NavLink>
