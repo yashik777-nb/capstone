@@ -7,7 +7,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import * as actionCreators from "../../store/actions/actionsIndex";
 
-const GreenCheckbox = withStyles({
+export const BlueCheckBox = withStyles({
   root: {
     color: blue[400],
     "&$checked": {
@@ -25,7 +25,7 @@ class CustomizeFields extends React.Component {
         <FormGroup row>
           <FormControlLabel
             control={
-              <GreenCheckbox
+              <BlueCheckBox
                 checked={this.props.severity}
                 onChange={(event) => this.props.severityHandler()}
                 name="severity"
@@ -35,7 +35,7 @@ class CustomizeFields extends React.Component {
           />
           <FormControlLabel
             control={
-              <GreenCheckbox
+              <BlueCheckBox
                 checked={this.props.status}
                 onChange={(event) => this.props.statusHandler()}
                 name="status"
@@ -45,7 +45,7 @@ class CustomizeFields extends React.Component {
           />
           <FormControlLabel
             control={
-              <GreenCheckbox
+              <BlueCheckBox
                 checked={this.props.createdDate}
                 onChange={(event) => this.props.createdDateHandler()}
                 name="creaedDate"
@@ -55,7 +55,7 @@ class CustomizeFields extends React.Component {
           />
           <FormControlLabel
             control={
-              <GreenCheckbox
+              <BlueCheckBox
                 checked={this.props.resolvedDate}
                 onChange={(event) => this.props.resolvedDateHandler()}
                 name="resolvedDate"
