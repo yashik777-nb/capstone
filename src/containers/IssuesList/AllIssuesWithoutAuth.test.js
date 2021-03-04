@@ -39,7 +39,7 @@ const store = {
     resolvedDate: true,
   },
   users: {
-    authenticated: true,
+    authenticated: false,
     firstname: "TestFirstName",
   },
 };
@@ -64,23 +64,11 @@ describe("Navigation Bar Tests", () => {
     );
   });
 
-  it("Should render h4 tag if authenticated", () => {
-    expect(wrapper.find("h4").length).toEqual(1);
+  it("Should not render h4 tag if not authenticated", () => {
+    expect(wrapper.find("h4").length).toEqual(0);
   });
 
-  it("Should render h4 tag if authenticated along with firstname in HTML Content", () => {
-    expect(wrapper.find("h4").children().length).toEqual(3);
-  });
-
-  it("Should render Customize Fields Component", () => {
-    expect(wrapper.find("CustomizeFields").length).toEqual(1);
-  });
-
-  it("Should render Charts Component", () => {
-    expect(wrapper.find("IssuesChart").length).toEqual(1);
-  });
-
-  test("Should Render All Issues", () => {
+  test("Should Render All Issues Without Auth", () => {
     expect(wrapper).toMatchSnapshot();
   });
 });

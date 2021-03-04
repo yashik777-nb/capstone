@@ -16,7 +16,6 @@ const saveIssue = (issue) => {
 };
 
 const updateIssues = (updatedIssue) => {
-  console.log("3.[Update Issue]", updatedIssue);
   return {
     type: actionTypes.UPDATE_ISSUE,
     updatedIssue: updatedIssue,
@@ -47,13 +46,9 @@ export const deleteIssue = (id) => {
 };
 
 export const updateIssue = (issue) => {
-  console.log("1.[Update Issue]", issue);
   return (dispatch) => {
     return CapstoneAPI.updateIssue(issue)
-      .then((updatedIssue) => {
-        console.log("2.[Update Issue]", updatedIssue);
-        return dispatch(updateIssues(updatedIssue));
-      })
+      .then((updatedIssue) => dispatch(updateIssues(updatedIssue)))
       .catch((err) => console.log(err));
   };
 };

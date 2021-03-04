@@ -16,13 +16,13 @@ class AllIssues extends React.Component {
   render() {
     const { classes } = this.props;
     const issuesLength = this.props.issues.length;
-    console.log(issuesLength);
     let issueCards = this.props.issues.map((issue) => {
       return (
         <CardIssue
           key={issue.id}
           {...issue}
           authenticated={this.props.authenticated}
+          customize={this.props.customize}
         />
       );
     });
@@ -63,6 +63,7 @@ const mapStateToProps = (state) => {
     issues: state.issues.issues,
     authenticated: state.users.authenticated,
     firstname: state.users.firstname,
+    customize: state.customize,
   };
 };
 

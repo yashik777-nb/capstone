@@ -9,14 +9,13 @@ import CustomizeFields, { BlueCheckBox } from "./CustomizeFields";
 
 configure({ adapter: new Adapter() });
 
-const store = {
+const store = {};
+
+const props = {
   severity: true,
   status: true,
   createdDate: true,
   resolvedDate: true,
-};
-
-const props = {
   severityHandler: () => {},
   statusHandler: () => {},
   createdDateHandler: () => {},
@@ -40,4 +39,25 @@ describe("Navigation Bar Tests", () => {
   it("Should render four BlueCheckbox components", () => {
     expect(wrapper.find(BlueCheckBox).length).toEqual(4);
   });
+
+  it("Should render the severity checkbox as checked", () => {
+    expect(wrapper.find(BlueCheckBox).at(0).props().checked).toEqual(true);
+  });
+
+  it("Should render the status checkbox as checked", () => {
+    expect(wrapper.find(BlueCheckBox).at(1).props().checked).toEqual(true);
+  });
+
+  it("Should render the created date checkbox as checked", () => {
+    expect(wrapper.find(BlueCheckBox).at(2).props().checked).toEqual(true);
+  });
+
+  it("Should render the resolved date checkbox as checked", () => {
+    expect(wrapper.find(BlueCheckBox).at(3).props().checked).toEqual(true);
+  });
+
+  test("Should Render Customize Fields Component With Props as true", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
 });

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About Page Tests Should Render a Card Issue 1`] = `ReactWrapper {}`;

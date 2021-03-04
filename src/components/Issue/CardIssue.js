@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -89,12 +88,4 @@ class CardIssue extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    customize: state.customize,
-  };
-};
-
-export default withStyles(styles, { withTheme: true })(
-  connect(mapStateToProps)(withRouter(CardIssue))
-);
+export default withStyles(styles, { withTheme: true })(withRouter(CardIssue));

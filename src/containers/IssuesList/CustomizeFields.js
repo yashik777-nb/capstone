@@ -26,6 +26,7 @@ class CustomizeFields extends React.Component {
           <FormControlLabel
             control={
               <BlueCheckBox
+                id="severity"
                 checked={this.props.severity}
                 onChange={(event) => this.props.severityHandler()}
                 name="severity"

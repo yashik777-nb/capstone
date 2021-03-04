@@ -2,7 +2,6 @@ import * as actionTypes from "../actions/actionTypes";
 
 const userInitalState = {
   authenticated: false,
-  message: "",
   id: "",
   username: "",
   firstname: "",
@@ -21,12 +20,6 @@ const usersReducer = (state = userInitalState, action) => {
         lastname: action.userData[0].lastname,
         location: action.userData[0].location,
         mobileNumber: action.userData[0].mobileNumber,
-      };
-    case actionTypes.USER_DOES_NOT_EXIST:
-      return {
-        ...state,
-        authenticated: false,
-        message: action.error,
       };
     case actionTypes.REGISTER_USER:
       return {

@@ -17,20 +17,7 @@ const styles = {
 
 const store = {
   issues: {
-    issues: [
-      {
-        id: 1,
-        title: "Issue One",
-        issueDescription: "Issue Description One",
-        severity: "Critical",
-        status: "Open",
-        createdDate: "28/02/2021  ",
-        resolvedDate: "29/03/2021",
-        views: 5,
-        backGroundColor: "#7828BF",
-        hoverBackGroundColor: "#9C5BB7",
-      },
-    ],
+    issues: [],
   },
   customize: {
     severity: true,
@@ -39,7 +26,7 @@ const store = {
     resolvedDate: true,
   },
   users: {
-    authenticated: true,
+    authenticated: false,
     firstname: "TestFirstName",
   },
 };
@@ -64,23 +51,11 @@ describe("Navigation Bar Tests", () => {
     );
   });
 
-  it("Should render h4 tag if authenticated", () => {
-    expect(wrapper.find("h4").length).toEqual(1);
+  it("Should render h5 if no data is passed", () => {
+    expect(wrapper.find("h5").length).toEqual(1);
   });
 
-  it("Should render h4 tag if authenticated along with firstname in HTML Content", () => {
-    expect(wrapper.find("h4").children().length).toEqual(3);
-  });
-
-  it("Should render Customize Fields Component", () => {
-    expect(wrapper.find("CustomizeFields").length).toEqual(1);
-  });
-
-  it("Should render Charts Component", () => {
-    expect(wrapper.find("IssuesChart").length).toEqual(1);
-  });
-
-  test("Should Render All Issues", () => {
+  test("Should Render All Issues Without Auth and without Data", () => {
     expect(wrapper).toMatchSnapshot();
   });
 });

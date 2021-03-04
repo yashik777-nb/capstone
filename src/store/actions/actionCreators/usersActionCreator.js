@@ -8,13 +8,6 @@ const loggedInUser = (userData) => {
   };
 };
 
-const userDoesNotExist = (error) => {
-  return {
-    type: actionTypes.USER_DOES_NOT_EXIST,
-    error: error,
-  };
-};
-
 const addUserDispatch = (userData) => {
   return {
     type: actionTypes.REGISTER_USER,
@@ -23,10 +16,7 @@ const addUserDispatch = (userData) => {
 };
 
 export const authenticateUser = (user) => {
-  return (dispatch) => {
-    if (user) return dispatch(loggedInUser(user));
-    else dispatch(userDoesNotExist("UserDoesNotExist"));
-  };
+  return (dispatch) => dispatch(loggedInUser(user));
 };
 
 export const logoutUser = () => {

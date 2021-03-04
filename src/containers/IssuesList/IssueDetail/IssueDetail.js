@@ -61,7 +61,6 @@ class IssueDetail extends React.Component {
     super(props);
     this.state = {
       issue: {},
-      open: false,
       disableIssueDescription: true,
       disableSeverity: true,
       disableStatus: true,
@@ -76,10 +75,16 @@ class IssueDetail extends React.Component {
     };
   }
   componentDidMount() {
+    console.log("1.[ComponentDidMount]", this.props.issues);
+    console.log(
+      "2.[ComponentDidMount]",
+      this.props.match.params.issueDescription
+    );
     const selectedIssue = this.props.issues.filter(
       (issue) =>
         issue.issueDescription === this.props.match.params.issueDescription
     );
+    console.log("3.[ComponentDidMount]", selectedIssue[0]);
     this.setState({ issue: selectedIssue[0] });
   }
 
@@ -121,7 +126,6 @@ class IssueDetail extends React.Component {
       resolvedDate: this.state.resolvedDateString,
       views: this.state.issue.views + 1,
     };
-    console.log("[IssueDetail]", issue);
     this.props.updateIssue(issue);
     this.props.history.push("/");
   }
@@ -134,6 +138,7 @@ class IssueDetail extends React.Component {
 
   render() {
     const { classes } = this.props;
+    console.log("[Render]", this.props);
     return (
       <div style={{ margin: "10px" }}>
         <Container component="main" maxWidth="xs">

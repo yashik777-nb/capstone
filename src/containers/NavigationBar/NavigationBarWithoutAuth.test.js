@@ -65,4 +65,8 @@ describe("Navigation Bar Tests", () => {
   it("Navlink path check for Sign In", () => {
     expect(wrapper.find("NavLink").get(3).props.to).toEqual("/signin");
   });
+
+  test("Should Render navigation Bar without Auth", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 });

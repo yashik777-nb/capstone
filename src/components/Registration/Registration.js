@@ -37,7 +37,7 @@ const styles = (theme) => ({
   },
 });
 
-class SignInMUI extends React.Component {
+class Registration extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -254,4 +254,4 @@ class SignInMUI extends React.Component {
   }
 }
 
-export default withStyles(styles, { withTheme: true })(SignInMUI);
+export default withStyles(styles, { withTheme: true })(Registration);

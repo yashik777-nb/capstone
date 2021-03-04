@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation Bar Tests Should Render navigation Bar 1`] = `ReactWrapper {}`;

@@ -59,7 +59,6 @@ class SignIn extends React.Component {
     e.preventDefault();
     CapstoneAPI.checkUser(this.state.username)
       .then((user) => {
-        console.log(user);
         if (user.length === 1) {
           this.props.onSave(user);
         } else {

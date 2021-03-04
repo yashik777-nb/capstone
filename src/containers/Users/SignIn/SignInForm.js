@@ -6,12 +6,8 @@ import * as actionCreators from "../../../store/actions/actionsIndex";
 
 class SingInForm extends React.Component {
   onSave(user) {
-    if (user) {
-      this.props.authenticateUser(user);
-      this.props.history.push("/issues");
-    } else {
-      this.props.authenticateUser();
-    }
+    this.props.authenticateUser(user);
+    this.props.history.push("/issues");
   }
 
   onRegister() {

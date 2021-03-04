@@ -106,7 +106,7 @@ export class NavigationBar extends React.Component {
                   >
                     <Tooltip disableFocusListener title="Add An Issue">
                       <ListItem button>
-                        <ListItemText primary="Add Issue" />
+                        <ListItemText primary="Add" />
                       </ListItem>
                     </Tooltip>
                   </NavLink>
