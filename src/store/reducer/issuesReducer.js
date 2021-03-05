@@ -31,7 +31,6 @@ const issuesReducer = (state = intialState, action) => {
       const deletedIssues = state.issuesCopy.filter(
         (issue) => issue.id !== action.deletedId
       );
-      console.log("1.[Reducer]", deletedIssues);
       return {
         ...state,
         issues: [...deletedIssues],
