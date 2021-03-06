@@ -1,5 +1,5 @@
 import React from "react";
-import IssueForm from "../NewIssue/IssueForm";
+import IssueForm from "../../components/IssueForm/IssueForm";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/actionCreators/IssuesActionCreator";

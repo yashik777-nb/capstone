@@ -28,6 +28,7 @@ const store = {
 
 const props = {
   classes: styles,
+  authenticated: false,
   onSearchIssue: () => {},
   logoutUser: () => {},
 };

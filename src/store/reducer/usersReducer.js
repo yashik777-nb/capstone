@@ -2,10 +2,10 @@ import * as actionTypes from "../actions/actionTypes";
 
 const userInitalState = {
   authenticated: false,
-  id: "",
   username: "",
   firstname: "",
   lastname: "",
+  location: "",
   mobileNumber: null,
 };
 
@@ -13,7 +13,6 @@ const usersReducer = (state = userInitalState, action) => {
   switch (action.type) {
     case actionTypes.AUTHENTICATED_USER:
       return {
-        ...state,
         authenticated: true,
         username: action.userData[0].username,
         firstname: action.userData[0].firstname,
@@ -23,7 +22,6 @@ const usersReducer = (state = userInitalState, action) => {
       };
     case actionTypes.REGISTER_USER:
       return {
-        ...state,
         authenticated: true,
         username: action.username,
         firstname: action.firstname,
@@ -33,13 +31,12 @@ const usersReducer = (state = userInitalState, action) => {
       };
     case actionTypes.LOGOUT_USER:
       return {
-        ...state,
         authenticated: false,
         username: "",
         firstname: "",
         lastname: "",
         location: "",
-        mobileNumber: "",
+        mobileNumber: null,
       };
     default:
       return state;

@@ -36,6 +36,7 @@ class CardIssue extends React.Component {
     }
     // if (window.confirm("Are you sure you want to view the details ?"))
     //   this.props.history.push(`/issues/${this.props.issueDescription}`);
+    // this.props.history.push(`/signin`);
   }
 
   render() {
@@ -79,7 +80,7 @@ class CardIssue extends React.Component {
           ) : null}
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={() => this.issueClicked()}>
+          <Button size="small" onClick={(e) => this.issueClicked(e)}>
             View Details
           </Button>
         </CardActions>

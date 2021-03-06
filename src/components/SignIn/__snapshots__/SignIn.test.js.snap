@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sign In Component Tests Should Render Sign In page 1`] = `ReactWrapper {}`;

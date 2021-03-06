@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registration Form Container Tests Should Render Registration Form Snapshot 1`] = `ReactWrapper {}`;

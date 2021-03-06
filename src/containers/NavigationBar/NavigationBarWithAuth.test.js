@@ -30,6 +30,7 @@ const props = {
   classes: styles,
   onSearchIssue: () => {},
   logoutUser: () => {},
+  authenticated: true,
 };
 
 const mockStore = configureStore();

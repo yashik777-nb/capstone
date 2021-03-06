@@ -5,6 +5,7 @@ import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import { createMount } from "@material-ui/core/test-utils";
 import Typography from "@material-ui/core/Typography";
 
+import Button from "@material-ui/core/Button";
 import CardIssue from "./CardIssue";
 
 configure({ adapter: new Adapter() });
@@ -34,6 +35,7 @@ const props = {
   views: 5,
   backGroundColor: "#7828BF",
   hoverBackGroundColor: "#9C5BB7",
+  authenticated: true,
 };
 
 describe("About Page Tests", () => {
@@ -51,6 +53,15 @@ describe("About Page Tests", () => {
   it("Should render six Typography", () => {
     expect(wrapper.find(Typography).length).toEqual(6);
   });
+
+  // it("If not Authenticated Should push sign in page", () => {
+  //   const button = wrapper.find(Button).at(0);
+  //   console.log(button);
+  //   const mockFn = jest.fn();
+  //   console.log(mockFn);
+  //   button.simulate("click");
+  //   expect(mockFn).toHaveBeenCalledWith("/signin");
+  // });
 
   test("Should Render a Card Issue", () => {
     expect(wrapper).toMatchSnapshot();

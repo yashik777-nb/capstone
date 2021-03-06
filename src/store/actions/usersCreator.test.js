@@ -15,7 +15,6 @@ describe("Users Action Creators", () => {
   // AUTHENTICATE USER
   it("Authnticate User Action Creator", () => {
     const userData = {
-      id: 1,
       username: "yash@abc.com",
       password: "yash",
       firstname: "Yash",

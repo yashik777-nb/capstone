@@ -13,6 +13,7 @@ import Loader from "../components/Loader/Loader";
 // import SignInForm from "./Users/SignIn/SignInForm";
 // import RegistrationForm from "./Users/Registration/RegistrationForm";
 // import NavigationBar from "./NavigationBar/NavigationBar";
+import NavigationBar from "./NavigationBar/NavigationBar";
 const AllIssues = lazy(() => import("../containers/IssuesList/AllIssues"));
 const NotFound = lazy(() => import("../components/NotFound/NotFound"));
 const About = lazy(() => import("../components/About/About"));
@@ -23,7 +24,6 @@ const SignInForm = lazy(() => import("./Users/SignIn/SignInForm"));
 const RegistrationForm = lazy(() =>
   import("./Users/Registration/RegistrationForm")
 );
-const NavigationBar = lazy(() => import("./NavigationBar/NavigationBar"));
 const NewIssue = lazy(() => import("../containers/NewIssue/NewIssue"));
 
 class App extends React.Component {
@@ -33,10 +33,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <Suspense fallback={<Loader />}>
-        <BrowserRouter>
+      <BrowserRouter>
+        <NavigationBar />
+        <Suspense fallback={<Loader />}>
           <div className="App">
-            <NavigationBar />
             <Switch>
               <Route path="/addIssue" component={NewIssue} />
               <Route path="/about" component={About} />
@@ -47,8 +47,8 @@ class App extends React.Component {
               <Route component={NotFound} />
             </Switch>
           </div>
-        </BrowserRouter>
-      </Suspense>
+        </Suspense>
+      </BrowserRouter>
     );
   }
 }

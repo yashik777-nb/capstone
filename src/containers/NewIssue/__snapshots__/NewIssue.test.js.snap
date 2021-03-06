@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`New Issue Form Container Tests Should Render New Issue Form Snapshot 1`] = `ReactWrapper {}`;
