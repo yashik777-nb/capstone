@@ -82,7 +82,9 @@ export class NavigationBar extends React.Component {
                 </NavLink>
               </IconButton>
             </Tooltip>
-            <Search filterFunction={this.props.onSearchIssue} />
+            <Hidden smDown>
+              <Search filterFunction={this.props.onSearchIssue} />
+            </Hidden>
             <Hidden smDown>
               <List
                 component="nav"

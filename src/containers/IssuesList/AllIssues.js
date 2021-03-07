@@ -1,11 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Container } from "@material-ui/core";
+import { Container, Hidden } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import Grid from "@material-ui/core/Grid";
 import CustomizeFields from "./CustomizeFields";
 import CardIssue from "../../components/Issue/CardIssue";
 import IssuesChart from "../../containers/Charts/IssuesChart";
+import Search from "../../containers/NavigationBar/Search";
+import * as actionCreators from "../../store/actions/actionsIndex";
 
 const styles = (theme) => ({
   root: {
@@ -37,7 +39,11 @@ class AllIssues extends React.Component {
               Hello {this.props.firstname}! Please find the below issues
             </h4>
           ) : null}
-
+          <Hidden mdUp>
+            <div style={{ backgroundColor: "#3f51b5" }}>
+              <Search filterFunction={this.props.onSearchIssue} />
+            </div>
+          </Hidden>
           {issuesLength > 0 ? (
             <div>
               <CustomizeFields />
@@ -67,6 +73,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(
-  withStyles(styles, { withTheme: true })(AllIssues)
-);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSearchIssue: (value) => dispatch(actionCreators.filterIssues(value)),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles, { withTheme: true })(AllIssues));

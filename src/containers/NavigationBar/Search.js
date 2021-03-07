@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: "70%",
+    width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(3),
       width: "auto",
@@ -69,7 +69,7 @@ export default function Search(props) {
           <SearchIcon />
         </div>
         <InputBase
-          placeholder="Search"
+          placeholder="Search Description"
           classes={{
             root: classes.inputRoot,
             input: classes.inputInput,
