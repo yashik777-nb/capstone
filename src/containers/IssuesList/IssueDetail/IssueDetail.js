@@ -72,20 +72,37 @@ class IssueDetail extends React.Component {
       createdDateString: "",
       resolvedDate: null,
       resolvedDateString: "",
+      isBackButtonClicked: false,
     };
   }
   componentDidMount() {
-    console.log("1.[ComponentDidMount]", this.props.issues);
-    console.log(
-      "2.[ComponentDidMount]",
-      this.props.match.params.issueDescription
-    );
     const selectedIssue = this.props.issues.filter(
       (issue) =>
         issue.issueDescription === this.props.match.params.issueDescription
     );
-    console.log("3.[ComponentDidMount]", selectedIssue[0]);
+    window.addEventListener("popstate", (e) => this.onBackButtonEvent(e));
     this.setState({ issue: selectedIssue[0] });
+  }
+
+  onBackButtonEvent(e) {
+    e.preventDefault();
+    if (
+      !this.state.isBackButtonClicked &&
+      (this.state.severity ||
+        this.state.status ||
+        this.state.createdDateString ||
+        this.state.resolvedDateString)
+    ) {
+      if (
+        window.confirm(
+          "Data was updated, Are you sure you want to navigate back ?"
+        )
+      ) {
+        this.props.history.push(`/issues/`);
+      }
+    } else {
+      this.props.history.push(`/issues/`);
+    }
   }
 
   severityHandler(e) {
@@ -116,6 +133,7 @@ class IssueDetail extends React.Component {
 
   onIssueUpdate(e) {
     e.preventDefault();
+    this.setState({ isBackButtonClicked: true });
     const issue = {
       id: this.state.issue.id,
       title: this.state.issue.title,
@@ -130,6 +148,10 @@ class IssueDetail extends React.Component {
     this.props.history.push("/");
   }
 
+  onEditIssueSignIn(e) {
+    this.props.history.push("/signin");
+  }
+
   onIssueDelete(e) {
     e.preventDefault();
     this.props.deleteIssue(this.state.issue.id);
@@ -138,7 +160,6 @@ class IssueDetail extends React.Component {
 
   render() {
     const { classes } = this.props;
-    console.log("[Render]", this.props);
     return (
       <div style={{ margin: "10px" }}>
         <Container component="main" maxWidth="xs">
@@ -168,6 +189,7 @@ class IssueDetail extends React.Component {
               <FormControl className={classes.formControl}>
                 <InputLabel id="severityLabel">Severity</InputLabel>
                 <Select
+                  disabled={!this.props.authenticated}
                   required={true}
                   labelId="severityLabel"
                   id="severity"
@@ -185,6 +207,7 @@ class IssueDetail extends React.Component {
               <FormControl className={classes.formControl}>
                 <InputLabel id="severityLabel">Status</InputLabel>
                 <Select
+                  disabled={!this.props.authenticated}
                   required={true}
                   labelId="statusLabel"
                   id="status"
@@ -203,6 +226,7 @@ class IssueDetail extends React.Component {
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                   <Grid container justify="space-around">
                     <KeyboardDatePicker
+                      disabled={!this.props.authenticated}
                       required={true}
                       margin="normal"
                       id="createdDate"
@@ -224,6 +248,7 @@ class IssueDetail extends React.Component {
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                   <Grid container justify="space-around">
                     <KeyboardDatePicker
+                      disabled={!this.props.authenticated}
                       required={true}
                       margin="normal"
                       id="resolvedDate"
@@ -241,26 +266,41 @@ class IssueDetail extends React.Component {
                   Previous Value: {this.state.issue.resolvedDate}
                 </FormHelperText>
               </FormControl>
+              {this.props.authenticated ? (
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                >
+                  Update Issue
+                </Button>
+              ) : null}
+            </form>
+            {this.props.authenticated ? (
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="secondary"
+                className={classes.submit}
+                onClick={(e) => this.onIssueDelete(e)}
+              >
+                Delete Issue
+              </Button>
+            ) : (
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                onClick={(e) => this.onEditIssueSignIn(e)}
               >
-                Update Issue
+                Sign to Edit Issue
               </Button>
-            </form>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="secondary"
-              className={classes.submit}
-              onClick={(e) => this.onIssueDelete(e)}
-            >
-              Delete Issue
-            </Button>
+            )}
           </div>
         </Container>
       </div>
@@ -270,6 +310,7 @@ class IssueDetail extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+    authenticated: state.users.authenticated,
     customize: state.customize,
     issues: state.issues.issues,
   };
