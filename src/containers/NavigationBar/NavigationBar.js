@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   AppBar,
@@ -63,6 +63,19 @@ const styles = (theme) => ({
 });
 
 export class NavigationBar extends React.Component {
+  state = {};
+  onAddIssueClick(e) {
+    e.preventDefault();
+    console.log("Add Button Clcked");
+    if (this.props.authenticated) {
+      alert("Authenticated, hence redirecting to add issue page");
+      this.props.history.push("/addissue");
+    } else {
+      alert("Not authenticated, hence redirecting to sign-in Page");
+      this.props.history.push("/signin");
+    }
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -100,19 +113,20 @@ export class NavigationBar extends React.Component {
                     </Tooltip>
                   </NavLink>
                 ))}
-                {this.props.authenticated ? (
-                  <NavLink
-                    to="/addissue"
-                    key="Add Issue"
-                    className={classes.linkText}
-                  >
-                    <Tooltip disableFocusListener title="Add An Issue">
-                      <ListItem button>
-                        <ListItemText primary="Add" />
-                      </ListItem>
-                    </Tooltip>
-                  </NavLink>
-                ) : null}
+
+                <NavLink
+                  to="#"
+                  key="Add Issue"
+                  className={classes.linkText}
+                  onClick={(e) => this.onAddIssueClick(e)}
+                >
+                  <Tooltip disableFocusListener title="Add An Issue">
+                    <ListItem button>
+                      <ListItemText primary="Add" />
+                    </ListItem>
+                  </Tooltip>
+                </NavLink>
+
                 {this.props.authenticated ? (
                   <NavLink
                     to="/"
@@ -137,6 +151,7 @@ export class NavigationBar extends React.Component {
                 authenticated={this.props.authenticated}
                 navLinks={navLinks}
                 logout={this.props.logoutUser}
+                onAddIssueClick={(e) => this.onAddIssueClick(e)}
               />
             </Hidden>
           </Container>
@@ -161,5 +176,5 @@ const mapDispathToProps = (dispatch) => {
 };
 
 export default withStyles(styles, { withTheme: true })(
-  connect(mapStateToProps, mapDispathToProps)(NavigationBar)
+  connect(mapStateToProps, mapDispathToProps)(withRouter(NavigationBar))
 );

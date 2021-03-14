@@ -33,7 +33,7 @@ class CardIssue extends React.Component {
     // } else {
     //   if (window.confirm("Please Sign In/Register to View More Details"))
     //     this.props.history.push(`/signin`);
-    //}
+    // }
     if (window.confirm("Are you sure you want to view the details ?"))
       this.props.history.push(`/issues/${this.props.issueDescription}`);
     // this.props.history.push(`/signin`);

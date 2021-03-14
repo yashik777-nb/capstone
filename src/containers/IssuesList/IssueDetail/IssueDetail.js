@@ -158,6 +158,18 @@ class IssueDetail extends React.Component {
     this.props.history.push("/");
   }
 
+  onIssueUpdateWithoutSignIn(e) {
+    e.preventDefault();
+    alert("Not authenticated to Update, hence redirecting to sign-in Page");
+    this.props.history.push("/signin");
+  }
+
+  onIssueDeleteWithoutSignIn(e) {
+    e.preventDefault();
+    alert("Not authenticated to Delete, hence redirecting to sign-in Page");
+    this.props.history.push("/signin");
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -278,6 +290,7 @@ class IssueDetail extends React.Component {
                 </Button>
               ) : null}
             </form>
+
             {this.props.authenticated ? (
               <Button
                 type="submit"
@@ -290,16 +303,28 @@ class IssueDetail extends React.Component {
                 Delete Issue
               </Button>
             ) : (
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-                onClick={(e) => this.onEditIssueSignIn(e)}
-              >
-                Sign to Edit Issue
-              </Button>
+              <div>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                  onClick={(e) => this.onIssueUpdateWithoutSignIn(e)}
+                >
+                  Sign to Edit Issue
+                </Button>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="secondary"
+                  className={classes.submit}
+                  onClick={(e) => this.onIssueDeleteWithoutSignIn(e)}
+                >
+                  Sign In to Delete Issue
+                </Button>
+              </div>
             )}
           </div>
         </Container>

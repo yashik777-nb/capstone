@@ -56,7 +56,7 @@ describe("Navigation Bar Tests", () => {
   });
 
   it("Should render seven NavLinks if authenticated", () => {
-    expect(wrapper.find("NavLink").length).toEqual(5);
+    expect(wrapper.find("NavLink").length).toEqual(6);
   });
 
   it("Navlink path check", () => {
